@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      ProductArrayExceptSelf
+    </title>
+    <body>
+      <script>
+        //output exeeded with this
+        var productExceptSelf1 = function(nums) {
+          console.log(nums);
+          let i =0;
+          let newNums = [];
+          while(i<nums.length){
+            let multi = 1;
+            console.log(`*** i-${i} [i]-${nums[i]} multi - ${multi}`)
+            for(j=0;j<nums.length;j++){
+              if(j === i ){
+                continue;
+              }
+              else{
+                multi = multi *  nums[j];
+              }
+            }
+            newNums.push(multi)
+            console.log(newNums);
+            i++
+          }
+          nums = newNums;
+          console.log(nums);
+          return nums
+        };
+
+
+        var productExceptSelf = function(nums) {
+          console.log(nums);
+          
+          let prevmulti = 1;
+          let i =0;
+          while(i<nums.length){
+            console.log(`*** i - ${i} [i] - ${nums[i]} prevmulti - ${prevmulti}`)
+            let multi =1;
+            let temp = 0;
+            for(j=i+1;j<nums.length;j++){
+              multi = multi * nums[j];
+            }
+            temp = nums[i]
+            nums[i] = multi * prevmulti;
+            prevmulti = prevmulti * temp;
+            i++
+          }
+          console.log(`prevmulti - ${prevmulti} nums - ${nums}`);
+        };
+      // below code block will not work in case of 0
+     /*   var productExceptSelf = (nums)=>{
+          console.log(nums);
+          let totalMulti = 1;
+          for(i = 0;i<nums.length;i++){
+            totalMulti *= nums[i];
+          }
+          console.log(`total multi = ${totalMulti}`)
+          
+          for(j=0; j<nums.length; j++){
+            
+            let add = 0;
+             let k=1
+            while(add < totalMulti){
+              add = add + nums[j];
+              k++
+             console.log(add);
+            }
+            console.log(`k-1 - ${k-1}`)
+            
+          }
+        };
+        */
+       
+       //FINAL SOLUTION BELOW
+        var productExceptSelf = (nums)=>{
+          console.log(nums);
+          let l  = nums.length;
+          let left = [1];
+          let right = new Array(l);
+          right[l-1] = 1;
+          //left 
+          for(i=1;i<l;i++){
+            left[i] = nums[i-1] * left[i-1];
+          }
+          //right
+          for(j=l-2;j>=0;j--){
+            right[j] = nums[j+1] * right[j+1]
+          }
+          //console.log(left,right);
+          //main array
+          for(k=0;k<l;k++){
+            nums[k] = left[k] * right[k];
+          }
+          //console.log(`nums - ${nums}`)
+        };
+
+        productExceptSelf([1,2,3,4]);
+       productExceptSelf([-1,1,0,-3,3]);
+      </script>
+    </body>
+  </head>
+</html>

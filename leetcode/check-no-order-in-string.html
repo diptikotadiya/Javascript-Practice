@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      check order of numbers in sentence
+    </title>
+  </head>
+  <body>
+    <script>
+      const string1 = "1 box has 3 blue 4 red  13 green and 12 yellow marbles"
+      const string2 = "hello world 5 x 5"
+      function areNumbersAscending(s){
+        let lastNo = -1;
+        let thisno;
+        
+        const arry = s.split(' ');
+        console.log(arry);
+        for (i=0; i<arry.length; i++){
+          if(!isNaN(arry[i])){
+            thisno = parseInt(arry[i]);
+            if(thisno <= lastNo){
+              return false;
+            }
+            else{
+              lastNo = thisno;
+            }
+          }
+        }
+        return true;
+      }
+
+      console.log(areNumbersAscending(string1));
+    </script>
+  </body>
+</html>

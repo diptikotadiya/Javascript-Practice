@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    sorting sentence
+  </title>
+</head>
+
+<body>
+  <script>
+    const s = "is2 sentence4 This1 a3";
+
+    /*  function sortingSentence(string){
+        let arry2 = [];
+        let arry = string.split(' ');
+        console.log(arry);
+        let newArry = arry.map(item =>item);
+        console.log(newArry);
+        for(i=0; i<newArry.length; i++){
+          
+          let index = newArry[i][newArry[i].length-1];
+          console.log(index);
+          
+          arry.splice((index-1),1,newArry[i]);
+          console.log(arry);
+
+          arry2 [index-1]=newArry[i];
+          console.log(arry2);
+         
+        }
+        
+      }
+      sortingSentence(s);
+      */
+    function sortingSentences2(s) {
+      let arry2 = s.split(' ');
+      let sortedArry = [];
+      let index2;
+      arry2.forEach(item => {
+        let index2 = item[item.length - 1];
+        sortedArry[index2 - 1] = item.slice(0, item.length - 1);
+        console.log(index2);
+        console.log(sortedArry);
+      });
+      sortedArry = sortedArry.join(' ');
+      console.log(sortedArry);
+      return sortedArry;
+    }
+    sortingSentences2(s)
+  </script>
+</body>
+
+</html>

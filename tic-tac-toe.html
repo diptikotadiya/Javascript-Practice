@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic Tc Toe</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    td {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      text-align: center;
+      font-size: 48px;
+    }
+    p#status {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td class="cell" onclick="makeMove(0, 0)"></td>
+      <td class="cell" onclick="makeMove(0, 1)"></td>
+      <td class="cell" onclick="makeMove(0, 2)"></td>
+    </tr>
+    <tr>
+      <td class="cell" onclick="makeMove(1, 0)"></td>
+      <td class="cell" onclick="makeMove(1, 1)"></td>
+      <td class="cell" onclick="makeMove(1, 2)"></td>
+    </tr>
+    <tr>
+      <td class="cell" onclick="makeMove(2, 0)"></td>
+      <td class="cell" onclick="makeMove(2, 1)"></td>
+      <td class="cell" onclick="makeMove(2, 2)"></td>
+    </tr>
+  </table>
+  <p id="status"></p>
+
+  <script>
+    const board = [
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', '']
+    ];
+
+    let currentPlayer = 'X';
+    let gameFinished = false;
+
+    function makeMove(row, col) {
+      if (!gameFinished && board[row][col] === '') {
+        board[row][col] = currentPlayer;
+        document.getElementsByClassName('cell')[row * 3 + col].textContent = currentPlayer;
+        if (checkWin(currentPlayer)) {
+          document.getElementById('status').textContent = `Player ${currentPlayer} wins!`;
+          gameFinished = true;
+        } else if (checkDraw()) {
+          document.getElementById('status').textContent = "It's a draw!";
+          gameFinished = true;
+        } else {
+          currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+      }
+    }
+
+    function checkWin(player) {
+      // Check rows, columns, and diagonals for a win
+      for (let i = 0; i < 3; i++) {
+        if (board[i][0] === player && board[i][1] === player && board[i][2] === player) {
+          return true; // Row win
+        }
+        if (board[0][i] === player && board[1][i] === player && board[2][i] === player) {
+          return true; // Column win
+        }
+      }
+      if (board[0][0] === player && board[1][1] === player && board[2][2] === player) {
+        return true; // Diagonal from top-left to bottom-right
+      }
+      if (board[0][2] === player && board[1][1] === player && board[2][0] === player) {
+        return true; // Diagonal from top-right to bottom-left
+      }
+      return false;
+    }
+
+    function checkDraw() {
+      // Check if the board is full (draw)
+      for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 3; col++) {
+          if (board[row][col] === '') {
+            return false; // There is an empty cell, not a draw yet
+          }
+        }
+      }
+      return true; // All cells are filled, it's a draw
+    }
+  </script>
+
+  
+</body>
+</html>

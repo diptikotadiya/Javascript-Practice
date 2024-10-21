@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IntegerToRoman</title>
+  </head>
+  <body>
+    <script>
+      var intToRoman = function(num) {
+        console.log(num);
+        const str = num.toString()
+        const l = str.length
+        const roman = [
+          ['','I','II','III','IV','V','VI','VII','VIII','IX'],
+          ['','X','XX','XXX','XL','L','LX','LXX','LXXX','XC'],
+          ['','C','CC','CCC','CD','D','DC','DCC','DCCC','CM'],
+          ['','M','MM','MMM']
+        ];
+        let result = ''
+        for(i=0;i<str.length;i++){
+          let digit = parseInt(str[i]);
+          result += (roman[l-i-1][digit]);
+          console.log(result);
+          }
+        return result
+      };
+      intToRoman(3749);
+      intToRoman(1994);
+      intToRoman(10);
+      intToRoman(5)
+    </script>
+  </body>
+</html>

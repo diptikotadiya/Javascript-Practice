@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      maximumProfit3
+    </title>
+    <body>
+      <script>
+        var maxProfit = function(prices) {
+          console.log(prices);
+          let profit = 0;
+          let tranc1 =0;
+          let tranc2 = 0
+          for(let i =1;i<prices.length;i++){
+            console.log(`***${i}***${prices[i]} tranc1 - ${tranc1} tranc2 - ${tranc2} profit - ${profit}`)
+            if(prices[i] >= prices[i-1]){
+              let diff = prices[i]-prices[i-1]
+              profit += diff
+              console.log( `prices[i] > prices[i-1] :: diff - ${diff} profit - ${profit} tranc1 - ${tranc1} tranc2 - ${tranc2}`)
+              
+            }
+            if(prices[i] < prices[i-1]){
+              if(profit > tranc1){
+                temp2 = tranc1
+                tranc1 = profit;
+                profit =0;
+                if(tranc1 > tranc2){
+                  let temp = tranc1;
+                  temp + temp2 >tranc2 ? tranc2 = temp+temp2 : temp2 = temp2
+                  tranc1 = tranc2;
+                  tranc2 = temp;
+                }}
+                console.log( `prices[i] < prices[i-1] :: profit - ${profit} tranc1 - ${tranc1}  tranc2- ${tranc2}`)
+          }}
+          profit >tranc1 ? tranc1 = profit : tranc1 = tranc1
+          profit = tranc1+tranc2;
+          console.log(`final - profit ${profit}`);
+        };
+
+       maxProfit([3,3,5,0,0,3,1,4]);
+       // maxProfit([1,2,3,4,5]);
+       //maxProfit([7,6,4,3,1]);
+       //maxProfit([
+        //1, 2, 4, 2, 5,
+        //7, 2, 4, 9, 0,
+        //]);
+      </script>
+    </body>
+  </head>
+</html>

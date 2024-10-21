@@ -1,0 +1,2 @@
+In Schedule OS/ Schedule EI, the amount of dividend income mentioned is cannot be more than the dividend income reduced from Schedule BP;#;Kindly ensure that dividend income mentioned in schedule OS or schedule EI should be equal to dividend income reduced from Schedule BP.	
+2.	Income from "Profits and Gains from Business or Profession" is greater than 2.5 lakhs but "Balance sheet" is not filled.	Kindly fill up details in Balance sheet since your income from "profits and Gains from Business or Profession" exceeds the basic exemption limit

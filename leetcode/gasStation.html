@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      gasStation
+    </title>
+    <body>
+      <script>
+        var canCompleteCircuit = function(gas, cost) {
+          let index = 0;
+          let remainedGas = 0;
+          let totalRemainedGas =0;
+          let currentRouteGas = 0;
+          for(i=0;i<gas.length;i++){
+            remainedGas = gas[i]-cost[i];
+            totalRemainedGas += remainedGas;
+            currentRouteGas += remainedGas
+            if(currentRouteGas < 0){
+              index = i +1;
+             currentRouteGas = 0;
+            }
+           
+          }
+          console.log(`final result - ${totalRemainedGas}`)
+          return totalRemainedGas >= 0 ? index : -1;
+        };
+        console.log(canCompleteCircuit([1,2,3,4,5],[3,4,5,1,2]));
+        console.log(canCompleteCircuit([2,3,4],[3,4,3]));
+        console.log(canCompleteCircuit([4,5,3,1,4],[5,4,3,4,2]));
+        
+      </script>
+    </body>
+  </head>
+</html>

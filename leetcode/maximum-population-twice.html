@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maximum Population</title>
+  </head>
+  <body>
+    <script>
+      const log = [[1950,1961],[1960,1971],[1970,1981]];
+      const log1 = [[1993,1999],[2000,2010]];
+      const log3 = [[1960,1971],[1970,1981]];
+      let minMaxObject = {};
+     
+      function findMinMaxYear(arry){
+            minMaxObject = {
+            minimumYear :  arry[0][0],
+            maximumYear :  arry[0][0],
+            }
+         
+          
+        for(i=0;i< arry.length;i++){
+          
+
+          for(j=0; j<arry[i].length; j++){
+            //console.log(arry[i]);
+            //console.log(arry[i][j]);
+            
+            if(arry[i][j]< minMaxObject.minimumYear){
+              minMaxObject.minimumYear = arry[i][j];
+            }
+            if(arry[i][j]> minMaxObject.maximumYear){
+              minMaxObject.maximumYear = arry[i][j];
+            }
+            //console.log(`minYear ${minMaxObject.minimumYear}`);
+            //console.log(`maxYear ${minMaxObject.maximumYear}`);
+          }
+        }
+        
+       
+        console.log(`minMaxObject:  ${minMaxObject.minimumYear} 
+        ${minMaxObject.maximumYear}`);
+        
+        return minMaxObject;
+
+        
+      }
+      
+
+      function maxPopulation(personArry){
+        findMinMaxYear(personArry);
+         let minYear = minMaxObject.minimumYear;
+         let maxYear = minMaxObject.maximumYear;
+         console.log('min-year'+ ' '+ minYear);
+         
+         let maxPopulation = 0;
+        let maxPopulationYear = minYear;
+
+        for(i= minYear; i<=maxYear; i++){
+          console.log(i);
+          let count = 0;
+          for(j=0; j<personArry.length; j++){
+            //console.log(personArry[j]);
+            //console.log(personArry[j][0]);
+            //console.log(personArry[j][1]);
+            if(personArry[j][0] <= i && personArry[j][1] >= i){
+              count++;
+              //console.log(count);
+              if(count > maxPopulation){
+                maxPopulation = count;
+                maxPopulationYear = i;
+              }
+            }
+          }
+        }
+       console.log(maxPopulation);
+       console.log(maxPopulationYear);
+      }
+      //findMinMaxYear(log);
+      maxPopulation(log);
+      //findMinMaxYear(log1);
+      maxPopulation(log1);
+      maxPopulation(log3);
+    </script>
+  </body>
+</html>

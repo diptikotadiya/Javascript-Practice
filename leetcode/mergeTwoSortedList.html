@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> merge two lists</title>
+  </head>
+  <body>
+   <script>
+    const list3 = [1,2,4];
+    const list4 = [1,3,4];
+    //list1.push(1);
+    //console.log(list1.sort());
+   /* for(i=0; i<list2.length; i++){
+      console.log(list2[i]);
+      list1.push(list2[i]);
+      console.log(list1);
+      
+    }
+    console.log(list1);
+    list1.sort();
+    console.log(list1);
+    */
+    function mergeTwoSortedLists(list1,list2){
+      for(i=0; i<list2.length; i++){
+      console.log(list2[i]);
+      list1.push(list2[i]);
+      console.log(list1);
+
+    }
+    console.log(list1);
+    list1.sort();
+    console.log(list1);
+  }
+  mergeTwoSortedLists(list3,list4);
+  const list5 = [];
+  const list6= [];
+  mergeTwoSortedLists(list5,list6);
+  const list7 = [];
+  const list8 = [0];
+  mergeTwoSortedLists(list7,list8);
+   </script>
+  </body>
+</html>

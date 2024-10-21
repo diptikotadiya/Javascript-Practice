@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Minimum Speed Of Train
+    </title>
+  </head>
+  <body>
+    <script>
+    const array1 = [1,3,2];
+    
+    function findMinSpeed(givenTime,tarinArry){
+    
+      let minSpeed = 1;
+      let maxSpeed = 10000000;
+      let answer=0;
+      if (givenTime < [tarinArry.length - 1]){
+        console.log('it is not possible' );
+      }
+      else {
+        
+        while(minSpeed <= maxSpeed){
+          let thisSpeed = Math.floor((minSpeed + maxSpeed)/2);
+          //console.log(thisSpeed);
+          //testTime(thisSpeed,tarinArry);
+          answer=thisSpeed;
+          console.log("Speed: "+thisSpeed+" Answer:",testTime(thisSpeed,tarinArry));
+          
+          if(testTime(thisSpeed,tarinArry) <= givenTime){
+            //answer=thisSpeed;
+            maxSpeed = thisSpeed-1;
+          }
+          else{
+            minSpeed = thisSpeed+1;
+          }
+        }
+        console.log(answer);
+        return thisSpeed;
+      }
+    }
+    
+      
+    
+    
+    function testTime (speed,tarinArry){
+      let totalTime = 0;
+      /*
+      tarinArry.forEach(item => {
+       let time = Math.ceil(item/speed);
+       totalTime += time;
+       //console.log(item);
+       
+      });
+      */
+     for(let i=0;i<tarinArry.length;i++)
+     {
+        let time = tarinArry[i]/speed;
+        totalTime += (i == tarinArry.length - 1 ? time : Math.ceil(time));
+     }
+      //console.log(totalTime);
+      return totalTime;
+    }
+    //console.log(testTime(5,array1));
+    findMinSpeed(6,array1);
+    </script>
+  </body>
+</html>

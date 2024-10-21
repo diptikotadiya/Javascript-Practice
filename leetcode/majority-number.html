@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      majority number
+    </title>
+    <body>
+      <script>
+        var majorityElement2 = function(nums) {
+          let number = nums[0]
+          let frequency = 1
+          console.log(nums)
+          for(i=0;i<nums.length;i++){
+            console.log(`i - ${i} - ${nums[i]}`)
+            let k = 1
+              if(nums[i] === 'paired'){
+                continue
+              } 
+              else{
+                  for(j=i+1;j<nums.length;j++){
+                    console.log(`j - ${j} - ${nums[j]}`)
+                    if(nums[j]=== 'paired'){
+                      continue
+                    }
+                    else if(nums[i] === nums[j]){
+                      k++
+                      nums[j] = 'paired'
+                      console.log(`k -${k}`)
+                      console.log(nums)
+                    }
+                    }
+                  }
+            if(k>frequency){
+              frequency=k
+              number = nums[i]
+              }
+            }
+            console.log(number)
+            return  number
+        };
+       
+        var majorityElement = function(nums) {
+          number = 0;
+          frequency = 0
+          for(let n of nums){if(frequency === 0){
+            number = n
+          }
+          else{
+            number === n ? frequency++ :frequency--
+          }}
+          console.log(number)
+          return number
+        }
+
+      
+      majorityElement([3,2,3])
+      majorityElement([2,2,1,1,1,2,2])
+      majorityElement([1])
+      majorityElement([6,5,5])
+      </script>
+    </body>
+  </head>
+</html>

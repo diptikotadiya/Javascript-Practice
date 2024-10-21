@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      candy
+    </title>
+  </head>
+  <body>
+    <script>
+      
+      var candy = function(ratings) {
+       console.log(ratings);
+       let up = 0, down = 0 , peak =0 , total = 1;
+       
+       for(i=0; i<ratings.length; i++){
+        if(ratings[i+1] > ratings[i]){
+          up++;
+          down = 0;
+          peak = up;
+          total += up;
+          
+        }
+        if(ratings[i+1] === ratings[i]){
+          up = 0;
+          down = 0;
+          total += 1;
+        }
+        if(ratings[i+1] < ratings[i]){
+          down ++;
+          if(down < up){
+            total =+ 0 + down;
+          }
+          if(down > up){
+            total += 1 + down;
+          }
+        }
+       }
+       console.log(total);
+      };
+      //candy([1,2,2]);
+      candy([1,0,1]);
+    </script>
+  </body>
+</html>

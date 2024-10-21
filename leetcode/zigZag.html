@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      zigzagString
+    </title>
+  </head>
+  <body>
+    <script>
+      var convert = function(s, numRows) {
+        let newS = ''
+        console.log(s)
+        for(i=0;i<numRows;i++){
+          let jump = 2*numRows - 2;
+          for(j=0;j<s.length;j+= jump){
+            newS =+ s[j + jump - i]
+            
+          }
+        }
+        console.log(newS)
+      };
+convert("PAYPALISHIRING",3);
+    </script>
+  </body>
+</html>

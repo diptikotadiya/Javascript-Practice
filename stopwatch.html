@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>stopwatch</title>
+  </head>
+  <body>
+    <button class="js-start-btn">start</button>
+    <p class="js-show-timer"></p>
+    <button class="js-stop-btn">stop</button>
+    <button>reset</button>
+
+    <script>
+      let startTime;
+      let stopTime;
+      let intervalId;
+      
+      document.querySelector('.js-start-btn').addEventListener('click',()=>{
+        
+       startTime = new Date().getTime();
+        //console.log(startTime);
+        //return startTime;
+        intervalId = setInterval(()=>{
+          updateTime();
+        },1000)
+      });
+      document.querySelector('.js-stop-btn').addEventListener('click',()=>{
+        clearInterval(intervalId);
+      });
+
+      
+
+      function updateTime(){
+        let currentTime = new Date().getTime();
+        let duration = (currentTime - startTime)/1000;
+        console.log(duration);
+        
+        createTimeString(duration);
+      }
+       function createTimeString(timeduration) {
+        let hour = Math.floor(timeduration/3600);
+        timeduration = timeduration % 3600;
+        let minutes = Math.floor(timeduration/60);
+        let seconds = timeduration % 60;
+        console.log(`hour: ${hour}  minute:${minutes}  second:${seconds}`);
+      }
+
+       
+       
+      
+
+    </script>
+  </body>
+</html>

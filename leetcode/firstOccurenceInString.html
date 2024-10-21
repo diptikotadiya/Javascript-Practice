@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <body>
+      <script>
+        var strStr = function(haystack, needle) {
+          //let l = needle.length;
+          //let count = 0;
+          let index = -1;
+          for(i = 0; i<haystack.length;i++){
+            console.log(`**** i= ${i}  [i]= ${haystack[i]}`)
+            if(haystack[i]===needle[0]){
+              index = i
+              for(j=1;j<needle.length;j++){
+                console.log(`j= ${j} needle[j]= ${needle[j]}  haystake[i+j]=${haystack[i+j]}`)
+                if(haystack[i+j] !== needle[j]){
+                  index = -1;
+                  break;
+                }
+              }
+              if(index !== -1){
+                break;
+              }
+            }
+          }
+          console.log(`final = ${index}`)
+        };
+        strStr("sadbutsad",'sad')
+        strStr("leetcode",'leeto')
+      </script>
+    </body>
+  </head>
+</html>

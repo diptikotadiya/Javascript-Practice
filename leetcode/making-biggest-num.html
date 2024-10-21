@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Making Biggest Number
+    </title>
+  </head>
+  <body>
+
+    <script>
+      function makingBiggestNum(arry){
+        console.log(arry);
+        let newArry =[];
+        for(i =9; i>=0; i--){
+          console.log(`i : ${i}`)
+          let temporaryArry = [];
+          for(j=0; j<arry.length; j++){
+            //console.log(arry[j]);
+            arry[j] = arry[j].toString()
+            console.log(arry[j])
+            console.log(`arry[j][0] : ${arry[j][0]}`)
+            if((Number(arry[j][0])) === i){
+              temporaryArry.push ((arry[j]));
+              
+            }
+          }
+          console.log(`temporary arry : ${temporaryArry}`);
+          temporaryArry = (temporaryArry).sort(function(a,b){return b-a});
+          if(temporaryArry.length >0){
+            newArry.push((temporaryArry.join('')));
+            console.log(`newArry : ${(newArry)}`);
+          } ;
+          temporaryArry = [];
+        }
+        console.log(`newArry : ${newArry}`);
+        //join method automatically convert number in to string
+        console.log((BigInt(Number(newArry.join('')))));
+      }
+      
+
+
+    /*  const arr1 = ['999','220','123','500'];
+      //console.log(arr1.sort(function(a, b){return b-a}));
+      for(i=0;i<arr1.length;i++){
+        //console.log(arr1[i]);
+        //console.log(arr1[i][0]);
+      }
+*/
+      const arry2 = [966,842,478,210,355]
+      const arry3 = [966,987,954,490,490,432,842,478,210,355]
+      makingBiggestNum(arry2);
+      makingBiggestNum(arry3);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      maximum-value-pair
+    </title>
+  </head>
+  <body>
+     <script>
+      const nums1 = [55,30,5,4,2];
+      const nums2 = [100,20,10,10,5];
+      const nums3 = [2,2,2];
+      const nums4 = [10,10,1];
+      let count = 0;
+      let dist = 0;
+      //console.log(nums1);
+      //console.log(nums2);
+      function maxDistance(no1,no2){
+        for(j=1; j<no2.length; j++){
+          for(i =0; i<no1.length; i++){
+            //console.log(no2[j]);
+            //console.log(no1[i]);
+            if(i===j){
+              break;
+            }
+            if(no1[i]<no2[j]){
+              count++;
+              console.log('index' + i + ' ' +'index'+ j);
+              console.log(no1[i] + ' ' + no2[j]);
+              if((j-i)>dist){
+                dist = j-i;
+              }
+            }
+
+            
+          }
+        }
+        console.log(count);
+        console.log(dist);
+        
+      }
+      maxDistance(nums1,nums2);
+      maxDistance(nums3,nums4);
+      
+
+     </script> 
+  </body>
+</html>

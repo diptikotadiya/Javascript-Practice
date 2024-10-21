@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      maximum profit
+    </title>
+    <body>
+      <script>
+        var maxProfit = function(prices) {
+          console.log(prices)
+          let minPrice = prices[0] ;
+          let maxPrice = prices[1];
+          let profit;
+          if(prices.length<=1) {
+            console.log(profit = 0)
+            
+          }
+         
+          else{for(let i =1; i<prices.length;i++){
+            profit = maxPrice-minPrice
+            console.log(`***profit - ${profit} -initial in loop`)
+            console.log(`i - ${i} - ${prices[i]}`)
+            if(prices[i]<minPrice){
+              maxPrice = profit+prices[i]
+              minPrice = prices[i]
+              console.log(`prices[i]<minPrice - maxPrice : ${maxPrice}  minPrice - ${minPrice}`)
+              
+            }
+            if(prices[i]>=maxPrice){
+              maxPrice = prices[i]
+              console.log(`prices[i]>maxPrice - maxPrice : ${maxPrice} minPrice - ${minPrice}`)
+            } 
+            
+            profit = maxPrice-minPrice
+            console.log(`profit : ${maxPrice} - ${minPrice} = ${profit}`)
+          }}
+          profit<0 ? profit = 0 :profit = profit
+          console.log(`final profit - ${profit}`)
+        };
+
+        maxProfit([7,1,5,3,6,4])
+        //maxProfit([7,6,4,3,1])
+        //maxProfit([1,2])
+        //maxProfit([1,2,4])
+        //maxProfit([1])
+        //maxProfit([4,2,1,7])
+      </script>
+    </body>
+  </head>
+</html>

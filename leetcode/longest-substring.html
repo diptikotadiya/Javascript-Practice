@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>length of longest substring</title>
+  </head>
+  <body>
+    <script>
+      const string1 = 'abcabcbbc';
+      const string2 = 'bbbbb';
+      const string3 = "pwwkew";
+      const string4 = ' ';
+      var lengthOfLongestSubstring = function(s) {
+    let subString = '';
+    
+    for(i=0; i<s.length; i++){
+      //console.log(s[i]);
+        if(i = 0 && s[0] !== ' '){
+          continue;
+        }
+     
+        if (!(subString.includes(s[i]))){
+           subString += s[i];
+        }
+    }
+    console.log(subString.length);
+    return subString.length;
+  };
+  lengthOfLongestSubstring(string1);
+  lengthOfLongestSubstring(string2);
+  lengthOfLongestSubstring(string3);
+  lengthOfLongestSubstring(string4);
+  
+  </script>
+  </body>
+ 
+  </html>

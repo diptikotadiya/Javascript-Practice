@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      textJustification
+    </title>
+  </head>
+  <body>
+    <script>
+      var fullJustify = function(words, maxWidth) {
+        let arry = [];
+        let tempArry = [];
+        let spaces = 0;
+        let spaceArry = [];
+        let prevwidth = 0;
+        for(let i =0; i<words.length; i++){
+          console.log(`i= ${i} [i]= ${words[i]}  [i]length= ${words[i].length} tempArry= ${tempArry}`)
+          let currWidth =(tempArry.length + words[i].length +1)
+          console.log(`currwidth= ${currWidth}  prevWidth= ${prevwidth}`)
+          if(currWidth<=maxWidth){
+            prevWidth = currWidth;
+            tempArry.push(words[i]);
+            spaceArry.push(1);
+            spaces ++
+          }
+          if(currWidth > maxWidth){
+            let remaindSpace = maxWidth-prevwidth;
+            
+            arry.push(tempArry);
+            tempArry = [words[i]];
+            prevwidth = 0;
+            currWidth = words[i].length;
+          }
+          if(i === words.length-1){
+            if(currWidth <maxWidth){
+              //str += ' '+words[i];
+              arry.push(tempArry);
+            }
+            else{
+              arry.push(tempArry);
+              arry.push(words[i])
+            }
+          }
+          console.log(tempArry,arry);
+        }
+      };
+
+      fullJustify(["This", "is", "an", "example", "of", "text", "justification."],16)
+      fullJustify()
+    </script>
+  </body>
+</html>

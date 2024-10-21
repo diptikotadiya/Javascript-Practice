@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      RomanToInteger
+    </title>
+  </head>
+  <body>
+    <script>
+      var romanToInt = function(s) {
+        //console.log(s);
+        const roman  ={
+          I:1,
+          V:5,
+          X:10,
+          L:50,
+          C:100,
+          D:500,
+          M:1000,
+        };
+        const l  = s.length;
+        let prevNum = roman[s[l-1]]
+        let number = prevNum;
+        if(l===1){
+          //console.log(`final= ${number}`)
+        }
+        else{
+          for(let i=l-2; i>=0; i--){
+            let currNum = roman[s[i]];
+            prevNum = roman[s[i+1]];
+            //console.log(`currNum= ${currNum}, prevNum= ${prevNum}`);
+            currNum >= prevNum ?  number += currNum : number -= currNum;
+            //console.log(number)
+          }
+        }
+        //console.log(`final = ${number}`);
+        return number
+      };
+
+      romanToInt('LVIII');
+      romanToInt("MCMXCIV");
+      romanToInt('V')
+    </script>
+  </body>
+</html>

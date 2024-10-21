@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    longestCommanPrefix
+  </title>
+</head>
+<body>
+  <script>
+    var longestCommonPrefix1 = function(strs) {
+      //console.log(strs);
+      let word = strs[0];
+      smallestL = strs[0].length;
+      for(i=0;i<strs.length;i++){
+        let l = strs[i].length;
+        if(l< smallestL){
+          smallestL = l;
+          word = strs[i];
+        }
+      }
+      //console.log(word,smallestL);
+      let shouldStop = false;
+      let count = 0;
+      let res = ''
+        for(j=0;j< word.length;j++){
+          count = 0;
+          if(shouldStop===false){
+            for(k=0; k<strs.length; k++){
+              
+            //console.log(strs[k][j])
+              if(strs[k][j] === word[j]){
+                count++
+              }
+              else{
+                shouldStop = true;
+                //console.log(shouldStop);
+                break;
+              }
+            }
+            if (count === strs.length){
+              res += word[j];
+            }
+            //console.log(count,res)
+          }
+          else {
+            break;
+          }
+        }
+      console.log(`final - ${res}`);
+      return res;
+    };
+    
+    ///APPROCH 2
+    var longestCommonPrefix = function(strs) {
+      //console.log(strs);
+      let comnLtrs = strs[0];
+      for(i=1;i<strs.length;i++){
+        //console.log(`i= ${i} [i]= ${strs[i]}`)
+        for(j=0;j<comnLtrs.length;j++){
+          const l = strs[i].length; 
+          //console.log(`j= ${j}  strs[i][j]= ${strs[i][j]}`)
+          if(strs[i][j] !== comnLtrs[j] ){
+            comnLtrs= comnLtrs.slice(0,j);
+            break;
+            }
+          if(j === l-1){
+            comnLtrs = comnLtrs.slice(0,j+1);
+            break;
+          }
+        }
+        //console.log(comnLtrs)
+      }
+      //console.log(`final = ${comnLtrs}`);
+      return comnLtrs;
+    };
+    
+  
+  longestCommonPrefix(["flower","flow","flight"])
+  longestCommonPrefix(["dog","racecar","car"])
+  longestCommonPrefix(['dipti','dipak','dipawali','diya','dixa'])
+  </script>
+</body>
+</html>

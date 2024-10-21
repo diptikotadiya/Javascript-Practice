@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      JumpGame
+    </title>
+    <body>
+      <script>
+        //not solved
+        var canJump = function(nums) {
+          console.log(nums);
+          let res = true;
+          if(nums[0] === 0){
+            res = false;
+            console.log(`at nums[0] is 0  -- result : ${res})`)
+          }
+          else {
+            let count = 0;
+            for(i = 0;i<=nums.length-2;i++){
+              //console.log(`*** i - ${i} : ${nums[i]}`)
+              if(nums[i]>0 && nums[i]>count){
+                count= 0;
+                i = i+count;
+                result = true;
+                console.log(`increased count -${count} result : ${res}`);
+              }
+              if(nums[i]===0 || nums[i]<count){
+                count ++;
+                i = i-2;
+                res = false;
+                console.log(`decreased count -${count}`);
+              }
+            }
+          }
+          console.log(`final result : ${res}`);
+          return res;
+        };
+        
+        //console.log(canJump([2,3,1,1,4]))
+        console.log(canJump([2,0,6,5,4,3,2,1,0,4]))
+      </script>
+    </body>
+  </head>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>calculator</title>
+    <style>
+      p{color: white;}
+      .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        width: 300px;
+        height: 200px;
+        column-gap: 5px;
+        row-gap: 5px;
+      }
+      .display{
+        display: flex;
+        flex-direction: row;
+        width: 300px;
+        height: 50px;
+        border-radius: 3px;
+        background-color: black;
+        margin-bottom: 5px;
+      }
+      </style>
+  </head>
+  <body>
+    <div class="display">
+      <p id="demo"></p>
+    </div>
+    <div class="container">
+    <button id="one" 
+    onclick="numeric(1);
+    console.log(calculation);
+    ">1</button>
+    <button id="two"
+    onclick="numeric(2);
+    console.log(calculation);"
+    >2</button>
+    <button id="three"
+    onclick="numeric(3);
+    console.log(calculation);"
+    >3</button>
+    <button id="plus"
+    onclick="operator('+');
+    console.log(calculation);"
+    >+</button>
+    <button id="four" 
+    onclick="numeric(4);
+    console.log(calculation);
+    ">4</button>
+    <button id="five" 
+    onclick="numeric(5);
+    console.log(calculation);
+    ">5</button>
+    <button id="six" 
+    onclick="numeric(6);
+    console.log(calculation);
+    ">6</button>
+    <button id="minus" 
+    onclick="operator('-');
+    console.log(calculation);
+    ">-</button>
+    <button id="seven" 
+    onclick="numeric(7);
+    console.log(calculation);
+    ">7</button>
+    <button id="eight" 
+    onclick="numeric(8);
+    console.log(calculation);
+    ">8</button>
+    <button id="nine" 
+    onclick="numeric(9);
+    console.log(calculation);
+    ">9</button>
+    <button id="zero" 
+    onclick="numeric(0);
+    console.log(calculation);
+    ">0</button>
+    <button id="point" 
+    onclick="numeric('.');
+    console.log(calculation);
+    ">.</button>
+    <button id="multi" 
+    onclick="operator('*');
+    console.log(calculation);
+    ">*</button>
+    <button id="devide" 
+    onclick="operator('/');
+    console.log(calculation);
+    ">/</button>
+    <button id="numeric"
+    onclick="
+    equal();
+    console.log(calculation);"
+    >=</button>
+    <button id="clear"
+    onclick="
+    clearDisplay();"
+    console.log(calculation);
+    >Clear</button>
+  </div>
+  <script>
+    var flagReset = 0;
+    let calculation = localStorage.getItem('calculation')||
+         '';
+    let value;
+
+    function numeric(value){
+        calculation = calculation.toString();
+        if(flagReset==1)
+        {
+          calculation = value;
+          flagReset=0;
+        }
+        else
+          calculation+=value;
+        document.getElementById("demo").innerHTML=calculation;
+        localStorage.setItem('calculation',calculation);
+    }
+
+    function operator(value){
+        calculation = calculation.toString();
+        calculation += value;
+        if(flagReset==1)
+          flagReset=0;
+        document.getElementById("demo").innerHTML=calculation;
+        localStorage.setItem('calculation',calculation);
+    }
+    
+    function equal(input){
+      flagReset=1;
+      calculation = eval(calculation);
+      calculation = calculation.toString();
+      document.getElementById("demo").innerHTML=calculation;
+      localStorage.setItem('calculation',calculation);
+
+    }
+    function clearDisplay(){
+      calculation = '';
+      localStorage.removeItem('calculation');
+      document.getElementById("demo").innerHTML = "";
+    }
+
+   
+    
+    
+    
+  </script>
+  </body>
+</html>

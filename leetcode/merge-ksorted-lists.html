@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      mergr k sorted lists
+    </title>
+  </head>
+  <body>
+    <script>
+      const list1 = [[1,4,5],[1,3,4],[2,6]];
+      const list2 = [];
+      const list3 = [[]];
+       function mergeTwoSortedLists(lists){
+        let newlist = [];
+        for(i=0; i<lists.length; i++){
+          console.log(lists[i]);
+          for(j=0; j<lists[i].length; j++){
+            console.log(lists[i][j]);
+            newlist.push(lists[i][j]);
+            console.log(newlist);
+          }
+          
+        }
+        console.log(newlist.sort());
+          return newlist.sort();
+       }
+
+  var merge = function(num1, m, num2, n) {
+    console.log(`num1-${num1}`)
+    console.log(`num2-${num2}`)
+    
+    num1.splice(m,n)
+      console.log(num1)
+
+    if(m==0){
+          num1.push(...num2)
+          i = num1.length
+          console.log(num1)
+          return num1
+        }
+    else{
+      
+      let initJ = 0
+      for(i=0;i<num2.length;i++) {
+      console.log(`num2 - II - ${num2[i]}`)
+      
+      
+      for(j=initJ;j<num1.length;j++){
+        
+        
+        console.log(`num1 - j - ${num1[j]}`)
+        if(num1[j]>=num2[i]){
+              num1.splice(j,0,num2[i])
+            console.log(num1)
+              initJ = j
+              m+=1
+              console.log(`new m - ${m}`)
+              console.log(`initJ now - ${initJ}`) 
+              break;
+          }
+        if(j == m-1 ){
+            num2.splice(0,i) 
+            console.log(`splised num2 ${num2}`)
+            num1.push(...num2) 
+            initJ = j
+            i= n
+            console.log(`initJ now - ${initJ}`) 
+            break;
+        }
+        initJ = j
+        console.log(`initJ now - ${initJ}`) 
+        
+      }
+    
+    }}
+    //num1.splice(num1.length-n,n)
+    console.log(num1)
+    return num1
+};
+const num1 = [1,2,3,0,0,0];
+const num2 = [2,3,5,6];
+const num3 = [1]
+const num4=[]
+const num5 = [0]
+const num6 = [1]
+const num7 = [1,2,3,0,0,0]
+const num8 = [4,5,6]
+const num9 =[-1,0,0,3,3,3,0,0,0]
+const num10 = [1,2,2]
+const num11= [1,2,3,0,0,0]
+const num12 = [2,5,6]
+//merge(num11,3,num12,3);
+//merge(num9,6,num10,3);
+//merge(num1,3,num2,4);
+merge(num3,1,num4,0);
+//merge(num5,0,num6,1);
+//merge(num7,3,num8,3);
+       //mergeTwoSortedLists(list1);
+       //mergeTwoSortedLists(list2);
+       //mergeTwoSortedLists(list3);
+    </script>
+  </body>
+</html>

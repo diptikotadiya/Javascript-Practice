@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>plus one</title>
+  </head>
+  <body>
+    <script>
+      const digit1 = [4,3,2,1];
+      const digit2 = [1,2,3];
+      const digit3 = [9];
+   /* var plusOne = function(digits) {
+    let string = 0;
+    let int;
+    let newArry = [];
+    for(i =0; i<digits.length; i++){
+      string += digits[i].toString();
+      console.log(string);
+      }
+    int = parseInt(string) + 1;
+    console.log(int);
+    int = int.toString();
+    console.log(int);
+    for(j=0; j<int.length; j++){
+        newArry.push(parseInt(int[j]));
+        console.log(newArry);
+      }
+  };
+  */
+
+ var plusOne = function(digits){
+  let arry = [];
+  
+  
+  let ans;
+  for(i = digits.length-1 ; i >= -1; i--){
+   
+    console.log(digits[i]);
+    ans = Number(digits[i]) + 1;
+   
+    if(ans<=9){
+      break;
+    }
+    if (ans >9){
+     arry.push(ans[1]);
+     console.log(arry);
+     
+    }
+  }
+  //console.log(arry);
+ }
+  plusOne(digit1);
+  //plusOne(digit2);
+  plusOne(digit3);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>>
+<html>
+  <head>
+    <title>
+      Remove Duplicates2
+    </title>
+    <body>
+      <script>
+        var removeDuplicates2 = function(nums) {
+          console.log(nums)
+          
+          for(i=0;i<nums.length;i++){
+            let l =1
+            console.log(`i - ${i} - ${nums[i]} `)
+            let j = i+1;
+            while(j<nums.length && nums[i]===nums[j]){
+              console.log(`j - ${j} - ${nums[j]} `)
+              console.log(`l - ${l}`)
+              if(l>1){
+                nums.splice(j,1)
+                console.log(`spliced`)
+                
+              }
+              else{
+                i++
+                l++
+                j++
+              }
+              
+            }
+            console.log(nums)
+          }
+          console.log(`Final nums - ${nums}`)
+        };
+      //removeDuplicates2([1,1,1,2,2,3])
+      //removeDuplicates2([0,0,1,1,1,1,2,3,3])
+      var removeDuplicates = function(nums) {
+        let k = nums.length
+        if(k<2){
+          console.log(` k- ${k} final nums - ${nums}`) 
+          return k}
+        else  {
+          for(i=2;i<nums.length;i++){
+            if(nums[i]===nums[i-2]){
+              nums.splice(i,1)
+              i--
+              k--
+            }
+          }
+          console.log(` k- ${k} final nums - ${nums}`)}
+        return k
+      };
+      //removeDuplicates([0,0,1,1,1,1,2,3,3])
+      removeDuplicates([1,1,1,2,2,3])
+      removeDuplicates([0])
+      removeDuplicates([])
+      </script>
+    </body>
+  </head>
+</html>

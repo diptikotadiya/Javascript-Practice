@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      length of last word
+    </title>
+  </head>
+  <body>
+    <script>
+      const s1 = "Hello World";
+      const s2 ="   fly me   to   the moon  "
+      let length =0;
+
+      function lengthOfLastWord1(s) {
+        const arry = s.trim().split(' ');
+        console.log(arry);
+        let lastWord = arry[arry.length-1];
+        console.log(lastWord);
+        console.log(lastWord.length);
+        return lastWord.length;
+   
+      }
+
+      var lengthOfLastWord = function(s){
+        console.log(s);
+        let arry = [];
+        let word = ''
+        for(let i=0;i<s.length;i++){
+          //console.log(s[i])
+          if(s[i] === ' '){
+            word && arry.push(word)  ;
+            word = '';
+          }
+          else{
+            word += s[i];
+          }
+          }
+        word && arry.push(word);
+        console.log(word,arry);
+        let l = (arry[arry.length-1].length);
+        console.log(l);
+        return l
+      }
+  lengthOfLastWord(s1);
+  lengthOfLastWord(s2);
+  lengthOfLastWord("luffy is still joyboy");
+    </script>
+  </body>
+</html>

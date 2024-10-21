@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      remove duplicate element
+    </title>
+  </head>
+  <body>
+    <script>
+      var removeDuplicates = function(nums) {
+        //console.log(`array -: ${nums}`);
+        let k = nums.length;
+        for(i=0;i<k;i++){
+          //console.log(`forllop- ${i} - ${nums[i]}`);
+          let j = i +1
+          while(nums[j]===nums[i]){
+            //console.log(`while loop - ${j} ${nums[j]}`)
+            nums.push('-')
+            nums.splice(j,1)
+            //console.log(nums)
+            k--
+            j--
+            j++
+          }
+        }
+        return k
+      };
+
+      var removeDuplicates2= function(nums) {
+        let  k = 1
+        if(nums.length === 0) return k =0
+        else {
+          for(i=1;i<nums.length && nums[i] !== '-';){
+            if(nums[i]===nums[i-1]){
+              nums.splice(i,1)
+              nums.push('-')
+              }
+            else {
+              k++
+              i++
+            }
+          }
+        }
+        return k
+      }   
+      //removeDuplicates([1,1,2]);
+      //removeDuplicates([0,0,1,1,1,2,2,3,3,4]);
+      //removeDuplicates2([1,1,2]);
+
+      /*var removeDuplicates2 = function(nums) {
+    if (nums.length === 0) return 0;
+    
+    let k = 1; // Start from the second element
+    
+    for (let i = 1; i < nums.length ;) {
+        if (nums[i] === nums[i - 1]) {
+            nums.splice(i, 1); // Remove the duplicate
+            console.log(`nums - ${nums}, k - ${k}`)
+        } else {
+            k++; // Increment the count of unique elements
+            i++; // Move to the next element
+        }
+    }
+    console.log(`final nums - ${nums}  k - ${k}`)
+  }*/
+      removeDuplicates2([0,0,1,1,1,2,2,3,3,4]);
+    </script>
+  </body>
+</html>
